@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "6abaf031-923b-4f05-9fdd-7f4f484d3e73",
+		"name": "microservicecart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17818467",
+		"_collection_link": "https://team-code-binary-clinica-eylin-lopez.postman.co/workspace/ShoppingCart~2af078f0-a2d4-4a6d-bc1f-633361a1414b/collection/17818467-6abaf031-923b-4f05-9fdd-7f4f484d3e73?action=share&source=collection_link&creator=17818467"
+	},
+	"item": [
+		{
+			"name": "Pago de Orden",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"orderId\": 1,\r\n  \"amount\": 5497.5,\r\n  \"paymentMethod\": \"Credit Card\",\r\n  \"customerId\": 1\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8082/payments/process"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene el Pago de una orden",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\":1,         // ID de la orden\r\n    \"amount\": 55.99,         // Monto a pagar\r\n    \"paymentMethod\": \"VISA\",  // Método de pago (puede ser VISA, MasterCard, etc.)\r\n    \"customerId\": 1       // ID del cliente\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8082/payments/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una Orden",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 3,\r\n  \"quantity\": 50,\r\n  \"customerId\": 3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Todas las Ordenes ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una orden",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/orders/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una Orden",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 6,\r\n  \"quantity\": 2,\r\n  \"customerId\": 123\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/orders/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una Orden",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8081/orders/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8084/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Producto por su ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8084/products/3"
+			},
+			"response": []
+		}
+	]
+}
